@@ -8,20 +8,30 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.6",
+    "@mui/material": "^6.4.6",
+    "@quickmatch/hooks": "workspace:*",
+    "@quickmatch/types": "workspace:*",
+    "@quickmatch/ui-components": "workspace:*",
     "next": "^13.4.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@quickmatch/ui-components": "workspace:*",
-    "@quickmatch/hooks": "workspace:*",
-    "@quickmatch/types": "workspace:*"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^18.16.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "typescript": "^5.0.4",
     "eslint": "^8.40.0",
-    "eslint-config-next": "^13.4.3"
+    "eslint-config-next": "^13.4.3",
+    "typescript": "^5.0.4"
   }
 }

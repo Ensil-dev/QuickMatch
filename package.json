@@ -7,18 +7,26 @@
     "apps/*",
     "packages/*"
   ],
-  "packageManager": "pnpm@9.12.1", 
+  "packageManager": "pnpm@9.12.1",
   "scripts": {
-  "build": "turbo run build",
-  "dev": "turbo run dev",
-  "lint": "turbo run lint",
-  "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-  "test": "turbo run test"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "test": "turbo run test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "turbo": "^2.4.4"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.6",
+    "@mui/material": "^6.4.6",
+    "@mui/styled-engine-sc": "^6.4.6",
+    "styled-components": "^6.1.15"
   }
 }
