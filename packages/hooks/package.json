@@ -1,5 +1,5 @@
 {
-  "name": "@quickmatch/ui-components",
+  "name": "@quickmatch/hooks",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
@@ -9,8 +9,8 @@
     "dev": "tsup src/index.ts --format esm,cjs --dts --watch"
   },
   "dependencies": {
-    "styled-components": "^6.0.0-rc.1",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "@tanstack/react-query": "^4.29.5"
   },
   "devDependencies": {
     "tsup": "^7.0.0",

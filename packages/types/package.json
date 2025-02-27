@@ -1,0 +1,15 @@
+{
+  "name": "@quickmatch/types",
+  "version": "0.0.1",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsup src/index.ts --format esm,cjs --dts"
+  },
+  "devDependencies": {
+    "tsup": "^7.0.0",
+    "typescript": "^5.0.4",
+    "eslint": "^8.40.0"
+  }
+}
