@@ -3,8 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "pnpm@9.12.1", 
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "build": "turbo run build",
+  "dev": "turbo run dev",
+  "lint": "turbo run lint",
+  "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+  "test": "turbo run test"
   },
   "keywords": [],
   "author": "",
