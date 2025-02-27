@@ -163,60 +163,51 @@ var ThemeProvider = ({ children }) => {
 // src/components/Button/index.tsx
 var import_react2 = __toESM(require("react"));
 var import_material = require("@mui/material");
-var import_styled_components2 = __toESM(require("styled-components"));
-var StyledButton = (0, import_styled_components2.default)(import_material.Button)`
-  &.MuiButton-contained {
-    &.MuiButton-containedPrimary {
-      /* 필요한 경우 여기에 추가 스타일링 */
-    }
-  }
-
-  /* 반응형 스타일링 예시 */
-  @media (max-width: 768px) {
-    font-size: 0.875rem;
-    padding: 6px 16px;
-  }
-`;
-var Button = (props) => {
-  return /* @__PURE__ */ import_react2.default.createElement(StyledButton, { ...props });
-};
-var PrimaryButton = (0, import_styled_components2.default)(Button).attrs({
-  variant: "contained",
-  color: "primary"
-})``;
-var SecondaryButton = (0, import_styled_components2.default)(Button).attrs({
-  variant: "outlined",
-  color: "primary"
-})``;
-var TextButton = (0, import_styled_components2.default)(Button).attrs({
-  variant: "text",
-  color: "primary"
-})``;
+var Button = import_react2.default.forwardRef((props, ref) => {
+  return /* @__PURE__ */ import_react2.default.createElement(import_material.Button, { ref, ...props });
+});
+Button.displayName = "Button";
+var PrimaryButton = import_react2.default.forwardRef((props, ref) => {
+  return /* @__PURE__ */ import_react2.default.createElement(Button, { ref, variant: "contained", color: "primary", ...props });
+});
+PrimaryButton.displayName = "PrimaryButton";
+var SecondaryButton = import_react2.default.forwardRef((props, ref) => {
+  return /* @__PURE__ */ import_react2.default.createElement(Button, { ref, variant: "outlined", color: "primary", ...props });
+});
+SecondaryButton.displayName = "SecondaryButton";
+var TextButton = import_react2.default.forwardRef((props, ref) => {
+  return /* @__PURE__ */ import_react2.default.createElement(Button, { ref, variant: "text", color: "primary", ...props });
+});
+TextButton.displayName = "TextButton";
 
 // src/components/Card/index.tsx
 var import_react3 = __toESM(require("react"));
 var import_material2 = require("@mui/material");
-var import_styled_components3 = __toESM(require("styled-components"));
-var StyledCard = (0, import_styled_components3.default)(import_material2.Card)`
-  border-radius: ${(props) => props.theme.shape.borderRadius}px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+var Card = import_react3.default.forwardRef(
+  ({ padding = "medium", children, ...props }, ref) => {
+    const paddingMap = {
+      small: "8px",
+      medium: "16px",
+      large: "24px"
+    };
+    return /* @__PURE__ */ import_react3.default.createElement(import_material2.Card, { ref, ...props }, /* @__PURE__ */ import_react3.default.createElement(import_material2.CardContent, { style: { padding: paddingMap[padding] } }, children));
   }
-`;
-var Card = ({ padding = "medium", children, ...props }) => {
-  const paddingMap = {
-    small: "8px",
-    medium: "16px",
-    large: "24px"
-  };
-  return /* @__PURE__ */ import_react3.default.createElement(StyledCard, { ...props }, /* @__PURE__ */ import_react3.default.createElement(import_material2.CardContent, { style: { padding: paddingMap[padding] } }, children));
-};
-var ElevatedCard = (0, import_styled_components3.default)(Card)`
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-`;
+);
+Card.displayName = "Card";
+var ElevatedCard = import_react3.default.forwardRef((props, ref) => {
+  return /* @__PURE__ */ import_react3.default.createElement(
+    Card,
+    {
+      ref,
+      ...props,
+      sx: {
+        boxShadow: "0 4px 16px rgba(0, 0, 0, 0.1)",
+        ...props.sx || {}
+      }
+    }
+  );
+});
+ElevatedCard.displayName = "ElevatedCard";
 
 // src/index.ts
 var import_material3 = require("@mui/material");

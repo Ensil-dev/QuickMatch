@@ -97,60 +97,51 @@ var ThemeProvider = ({ children }) => {
 // src/components/Button/index.tsx
 import React2 from "react";
 import { Button as MuiButton } from "@mui/material";
-import styled from "styled-components";
-var StyledButton = styled(MuiButton)`
-  &.MuiButton-contained {
-    &.MuiButton-containedPrimary {
-      /* 필요한 경우 여기에 추가 스타일링 */
-    }
-  }
-
-  /* 반응형 스타일링 예시 */
-  @media (max-width: 768px) {
-    font-size: 0.875rem;
-    padding: 6px 16px;
-  }
-`;
-var Button = (props) => {
-  return /* @__PURE__ */ React2.createElement(StyledButton, { ...props });
-};
-var PrimaryButton = styled(Button).attrs({
-  variant: "contained",
-  color: "primary"
-})``;
-var SecondaryButton = styled(Button).attrs({
-  variant: "outlined",
-  color: "primary"
-})``;
-var TextButton = styled(Button).attrs({
-  variant: "text",
-  color: "primary"
-})``;
+var Button = React2.forwardRef((props, ref) => {
+  return /* @__PURE__ */ React2.createElement(MuiButton, { ref, ...props });
+});
+Button.displayName = "Button";
+var PrimaryButton = React2.forwardRef((props, ref) => {
+  return /* @__PURE__ */ React2.createElement(Button, { ref, variant: "contained", color: "primary", ...props });
+});
+PrimaryButton.displayName = "PrimaryButton";
+var SecondaryButton = React2.forwardRef((props, ref) => {
+  return /* @__PURE__ */ React2.createElement(Button, { ref, variant: "outlined", color: "primary", ...props });
+});
+SecondaryButton.displayName = "SecondaryButton";
+var TextButton = React2.forwardRef((props, ref) => {
+  return /* @__PURE__ */ React2.createElement(Button, { ref, variant: "text", color: "primary", ...props });
+});
+TextButton.displayName = "TextButton";
 
 // src/components/Card/index.tsx
 import React3 from "react";
 import { Card as MuiCard, CardContent } from "@mui/material";
-import styled2 from "styled-components";
-var StyledCard = styled2(MuiCard)`
-  border-radius: ${(props) => props.theme.shape.borderRadius}px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+var Card = React3.forwardRef(
+  ({ padding = "medium", children, ...props }, ref) => {
+    const paddingMap = {
+      small: "8px",
+      medium: "16px",
+      large: "24px"
+    };
+    return /* @__PURE__ */ React3.createElement(MuiCard, { ref, ...props }, /* @__PURE__ */ React3.createElement(CardContent, { style: { padding: paddingMap[padding] } }, children));
   }
-`;
-var Card = ({ padding = "medium", children, ...props }) => {
-  const paddingMap = {
-    small: "8px",
-    medium: "16px",
-    large: "24px"
-  };
-  return /* @__PURE__ */ React3.createElement(StyledCard, { ...props }, /* @__PURE__ */ React3.createElement(CardContent, { style: { padding: paddingMap[padding] } }, children));
-};
-var ElevatedCard = styled2(Card)`
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-`;
+);
+Card.displayName = "Card";
+var ElevatedCard = React3.forwardRef((props, ref) => {
+  return /* @__PURE__ */ React3.createElement(
+    Card,
+    {
+      ref,
+      ...props,
+      sx: {
+        boxShadow: "0 4px 16px rgba(0, 0, 0, 0.1)",
+        ...props.sx || {}
+      }
+    }
+  );
+});
+ElevatedCard.displayName = "ElevatedCard";
 
 // src/index.ts
 import {
