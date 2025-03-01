@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -11,6 +11,7 @@ import {
   Drawer,
   List,
   ListItem,
+  ListItemButton,
   ListItemText,
   useMediaQuery,
   useTheme,
@@ -23,6 +24,14 @@ export function Navbar() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  // 👇 추가: 클라이언트 사이드 렌더링 상태 추적
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 클라이언트 사이드임을 표시
+    setIsClient(true);
+  }, []);
+
   const navItems = [
     { label: '홈', href: '/' },
     { label: '일자리 찾기', href: '/jobs' },
@@ -33,6 +42,27 @@ export function Navbar() {
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
+
+  // 👇 수정: 서버 사이드에서는 아무것도 렌더링하지 않거나 공통 상태를 렌더링
+  if (!isClient) {
+    return (
+      <AppBar position="static" color="default" elevation={1}>
+        <Toolbar>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, fontWeight: 'bold', color: 'primary.main' }}
+          >
+            QuickMatch
+          </Typography>
+          {/* 초기 로딩 상태에서는 메뉴 아이콘만 표시 */}
+          <IconButton edge="end" color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+    );
+  }
 
   return (
     <AppBar position="static" color="default" elevation={1}>
@@ -54,16 +84,16 @@ export function Navbar() {
               <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer}>
                 <List>
                   {navItems.map((item) => (
-                    <ListItem button component={Link} href={item.href} key={item.label}>
+                    <ListItemButton component={Link} href={item.href} key={item.label}>
                       <ListItemText primary={item.label} />
-                    </ListItem>
+                    </ListItemButton>
                   ))}
-                  <ListItem button component={Link} href="/login">
+                  <ListItemButton component={Link} href="/login">
                     <ListItemText primary="로그인" />
-                  </ListItem>
-                  <ListItem button component={Link} href="/signup">
+                  </ListItemButton>
+                  <ListItemButton component={Link} href="/signup">
                     <ListItemText primary="회원가입" />
-                  </ListItem>
+                  </ListItemButton>
                 </List>
               </Box>
             </Drawer>
