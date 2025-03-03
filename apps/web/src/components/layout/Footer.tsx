@@ -31,10 +31,10 @@ export function Footer() {
               서비스 소개
             </Link>
             <Link href="/faq" color="inherit" display="block">
-              자주 묻는 질문
+              자주 묻는 질문 (미구현)
             </Link>
             <Link href="/terms" color="inherit" display="block">
-              이용약관
+              이용약관 (미구현)
             </Link>
           </Grid>
           <Grid item xs={12} sm={4}>

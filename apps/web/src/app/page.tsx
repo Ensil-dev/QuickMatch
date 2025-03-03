@@ -62,7 +62,7 @@ export default function Home() {
                 }}
               >
                 <Typography variant="h6" gutterBottom color="text.primary">
-                  빠른 검색
+                  빠른 검색 (미구현)
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <TextField

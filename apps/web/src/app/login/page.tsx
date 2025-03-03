@@ -115,7 +115,7 @@ export default function LoginPage() {
 
           <Box sx={{ textAlign: 'right', mb: 2 }}>
             <MuiLink href="/forgot-password" component={Link} variant="body2">
-              비밀번호를 잊으셨나요?
+              비밀번호를 잊으셨나요?  (미구현)
             </MuiLink>
           </Box>
 
