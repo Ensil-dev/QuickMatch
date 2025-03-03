@@ -40,7 +40,7 @@ export default function Home() {
               </Typography>
               <Box sx={{ mt: 4, display: 'flex', gap: 2 }}>
                 <Button variant="contained" size="large" color="secondary" href="/jobs">
-                  일자리 찾기
+                  알바 찾기
                 </Button>
                 <Button
                   variant="outlined"
@@ -71,7 +71,19 @@ export default function Home() {
                     variant="outlined"
                     size="small"
                   />
-                  <Button variant="contained" color="primary" startIcon={<SearchIcon />}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    startIcon={<SearchIcon />}
+                    sx={{
+                      minWidth: 'auto',  // 최소 너비를 콘텐츠에 맞게 설정
+                      px: 2,
+                      whiteSpace: 'nowrap',  // 줄바꿈 방지
+                      '& span': {  // 모든 span 요소(텍스트 포함)에 적용
+                        whiteSpace: 'nowrap'
+                      }
+                    }}
+                  >
                     검색
                   </Button>
                 </Stack>

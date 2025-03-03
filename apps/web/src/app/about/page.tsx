@@ -73,7 +73,7 @@ export default function AboutPage() {
     },
     {
       step: 2,
-      title: '일자리 등록 또는 검색',
+      title: '알바 찾기 또는 검색',
       description: '구인자는 필요한 일자리를 등록하고, 구직자는 적합한 일자리를 검색합니다.',
       icon: <PersonSearchIcon />,
     },
@@ -151,7 +151,7 @@ export default function AboutPage() {
                 href="/jobs"
                 sx={{ mr: 2 }}
               >
-                일자리 찾기
+                알바 찾기
               </Button>
               <Button variant="outlined" color="inherit" size="large" href="/workers">
                 인력 구하기

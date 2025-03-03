@@ -67,7 +67,7 @@ export default function JobsPage() {
   return (
     <Container sx={{ py: 4 }}>
       <Typography variant="h4" component="h1" gutterBottom fontWeight="bold">
-        일자리 찾기
+        알바 찾기
       </Typography>
       <Typography variant="subtitle1" color="text.secondary" paragraph>
         다양한 단기 일자리를 검색하고 지원하세요

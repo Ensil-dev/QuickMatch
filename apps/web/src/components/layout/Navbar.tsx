@@ -33,8 +33,7 @@ export function Navbar() {
   }, []);
 
   const navItems = [
-    { label: '홈', href: '/' },
-    { label: '일자리 찾기', href: '/jobs' },
+    { label: '알바 찾기', href: '/jobs' },
     { label: '인력 구하기', href: '/workers' },
     { label: '서비스 소개', href: '/about' },
   ];
@@ -70,9 +69,18 @@ export function Navbar() {
         <Typography
           variant="h6"
           component="div"
-          sx={{ flexGrow: 1, fontWeight: 'bold', color: 'primary.main' }}
+          sx={{ flexGrow: 1, fontWeight: 'bold' }}
         >
-          QuickMatch
+          <Link 
+            href="/" 
+            style={{ 
+              color: '#1976d2',  // primary.main 색상
+              textDecoration: 'none'
+            }}
+            passHref
+          >
+            QuickMatch
+          </Link>
         </Typography>
 
         {isMobile ? (

@@ -18,6 +18,10 @@ import Link from 'next/link';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+import {
+  Google as GoogleIcon,
+} from '@mui/icons-material';
+
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -48,8 +52,8 @@ export default function LoginPage() {
   return (
     <Container maxWidth="sm" sx={{ py: 8 }}>
       <Paper elevation={3} sx={{ p: 4 }}>
-        <Typography variant="h4" component="h1" align="center" gutterBottom>
-          로그인
+        <Typography variant="h4" component="h1" align="center" gutterBottom color="primary">
+          QuickMatch
         </Typography>
 
         {error && (
@@ -121,9 +125,16 @@ export default function LoginPage() {
             </Typography>
           </Divider>
 
-          <Button fullWidth variant="outlined" color="primary" size="large" sx={{ mb: 2 }}>
-            구글로 로그인
+
+          <Button fullWidth variant="outlined" startIcon={<GoogleIcon />} sx={{
+            py: 1.2,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            Google로 회원가입 (미구현)
           </Button>
+
 
           <Box sx={{ mt: 3, textAlign: 'center' }}>
             <Typography variant="body2">

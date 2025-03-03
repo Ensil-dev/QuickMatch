@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "packageManager": "pnpm@9.12.1",
   "scripts": {
     "build": "turbo run build",

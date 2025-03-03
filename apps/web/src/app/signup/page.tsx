@@ -697,13 +697,18 @@ export default function SignupPage() {
               </Typography>
             </Divider>
 
-            <Grid container spacing={2}>
+            <Grid container spacing={2} justifyContent="center">
               <Grid item xs={12} sm={4}>
-                <Button fullWidth variant="outlined" startIcon={<GoogleIcon />} sx={{ py: 1.2 }}>
-                  Google로 회원가입
+                <Button fullWidth variant="outlined" startIcon={<GoogleIcon />} sx={{
+                  py: 1.2,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  Google로 회원가입 (미구현)
                 </Button>
               </Grid>
-              <Grid item xs={12} sm={4}>
+              {/* <Grid item xs={12} sm={4}>
                 <Button fullWidth variant="outlined" startIcon={<FacebookIcon />} sx={{ py: 1.2 }}>
                   Facebook으로 회원가입
                 </Button>
@@ -712,7 +717,7 @@ export default function SignupPage() {
                 <Button fullWidth variant="outlined" startIcon={<AppleIcon />} sx={{ py: 1.2 }}>
                   Apple로 회원가입
                 </Button>
-              </Grid>
+              </Grid> */}
             </Grid>
 
             <Box sx={{ mt: 3, textAlign: 'center' }}>
