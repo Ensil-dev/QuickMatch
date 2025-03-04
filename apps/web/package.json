@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --fix",
+    "build": "next lint --fix && next build"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

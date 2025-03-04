@@ -1,7 +1,9 @@
-// apps/web/next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    transpilePackages: ['@quickmatch/ui-components'],
-  };
-  
-  module.exports = nextConfig;
+  distDir: ".next", // 빌드 경로를 기본값으로
+  reactStrictMode: true,
+  transpilePackages: ['@quickmatch/ui-components'],
+  output: "standalone", // Vercel에서 standalone 모드 활성화
+};
+
+module.exports = nextConfig;

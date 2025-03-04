@@ -54,16 +54,32 @@ export default function SignupPage() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [activeStep, setActiveStep] = useState(0);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    email: string;
+    password: string;
+    confirmPassword: string;
+    name: string;
+    userType: 'worker' | 'employer';
+    companyName: string;
+    companySize: string;
+    businessType: string;
+    jobCategories: string[];
+    location: string;
+    availableDays: string[];
+    preferredJobTypes: string[];
+    termsAgreed: boolean;
+    privacyAgreed: boolean;
+    marketingAgreed: boolean;
+  }>({
     email: '',
     password: '',
     confirmPassword: '',
     name: '',
-    userType: 'worker', // 'worker' 또는 'employer'
+    userType: 'worker',
     companyName: '',
     companySize: '',
     businessType: '',
-    jobCategories: [],
+    jobCategories: [], // 이제 string[] 타입으로 인식됨
     location: '',
     availableDays: [],
     preferredJobTypes: [],
